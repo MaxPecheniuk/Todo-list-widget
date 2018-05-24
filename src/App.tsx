@@ -1,12 +1,12 @@
 import * as React from 'react';
 import './App.scss';
-import { InputTest } from './input/Input';
+import { InputForm } from './inputForm/InputForm';
 
 class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <InputTest/>
+        <InputForm/>
       </div>
     );
   }

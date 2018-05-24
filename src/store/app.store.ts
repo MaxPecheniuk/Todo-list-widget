@@ -1,30 +1,27 @@
-import { action, computed, observable } from 'mobx';
+import { computed, observable } from 'mobx';
 
-export interface TodoItem {
-  todo: string;
+export interface Test {
+  text: string;
 }
 export class AppStore {
+  @observable
+  public input: string;
 
   @observable
-  public _inputValue: string = '';
-
-  @observable
-  private todos: Array<TodoItem>;
-
-  init() {
-    this.inputCheck();
-  }
+  protected todos: Array<string> = [];
 
   @computed
-  get addTodo(): Array<TodoItem> {
+  get todo(): Array<string> {
     return this.todos;
   }
 
-  @action
-  private inputCheck(): string {
-    return this._inputValue;
+  addtodo() {
+    this.todos.push(this.input);
+    console.log(this.todos.length);
   }
-
+   clear() {
+    this.input = '';
+  }
 }
 
 export const appStore = new AppStore();

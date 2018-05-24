@@ -6,9 +6,8 @@ import { InputField } from './InputField';
 export class InputForm extends React.Component {
   render() {
     return (
-      <form>
-        <InputField/>
-      </form>
+      <InputField/>
+
     );
   }
 }

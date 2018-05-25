@@ -1,29 +1,36 @@
 import { computed, observable } from 'mobx';
 
-export interface Test {
+export interface TodoItemType {
   value: string;
+  status: boolean;
 }
+
+const defaultTodo = {
+  value: '',
+  status: false
+};
 
 export class AppStore {
   @observable
-  public valuetext: string = '';
-
+  public inputValue = {
+    value: '',
+    status: false
+  };
   @observable
-  private todos: Array<Test> = [];
+  private _todoList: Array<TodoItemType> = [];
 
   @computed
-  get todo(): Array<Test> {
-    return this.todos;
+  get todoList(): Array<TodoItemType> {
+    return this._todoList;
   }
 
-  addtodo() {
-    this.todos.push({value: this.valuetext});
-    console.log(this.todos.length);
-    console.log(this.todos);
+  addNewTodo() {
+    this.todoList.push(this.inputValue);
+    console.log(this.todoList);
 
   }
-   clear() {
-    this.valuetext = '';
+   clearInput() {
+    this.inputValue = defaultTodo;
   }
 }
 

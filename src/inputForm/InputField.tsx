@@ -1,20 +1,21 @@
 import * as React from 'react';
-import { appStore, Test } from '../store/app.store';
+import { appStore } from '../store/app.store';
 import { observer } from 'mobx-react';
 import { FormEvent } from 'react';
 // import { observable } from 'mobx';
 
 @observer
-export class InputField extends React.Component<{}, Test> {
+export class InputField extends React.Component {
 
   // @observable
   // input: string = '';
 
   change = (e: any) => {
-    appStore.input = e.target.value;
+    appStore.valuetext = e.target.value;
   }
 
   sub(event: FormEvent<any>) {
+    console.log(appStore.valuetext);
     event.preventDefault();
     appStore.addtodo();
     appStore.clear();
@@ -26,7 +27,7 @@ export class InputField extends React.Component<{}, Test> {
     return (
       <div>
         <input
-          value={appStore.input}
+          value={appStore.valuetext}
           onChange={this.change}
         />
         <button
@@ -34,7 +35,8 @@ export class InputField extends React.Component<{}, Test> {
         >
           BTN
         </button>
-        {appStore.input}
+        {appStore.valuetext}
+        {appStore.todo.map((value, i) => <div key={i}>{value.value}</div>)}
       </div>
 
     );

@@ -1,26 +1,29 @@
 import { computed, observable } from 'mobx';
 
 export interface Test {
-  text: string;
+  value: string;
 }
+
 export class AppStore {
   @observable
-  public input: string;
+  public valuetext: string = '';
 
   @observable
-  protected todos: Array<string> = [];
+  private todos: Array<Test> = [];
 
   @computed
-  get todo(): Array<string> {
+  get todo(): Array<Test> {
     return this.todos;
   }
 
   addtodo() {
-    this.todos.push(this.input);
+    this.todos.push({value: this.valuetext});
     console.log(this.todos.length);
+    console.log(this.todos);
+
   }
    clear() {
-    this.input = '';
+    this.valuetext = '';
   }
 }
 

@@ -1,4 +1,4 @@
-import { computed, observable } from 'mobx';
+import { action, computed, observable } from 'mobx';
 
 export interface TodoItemType {
   value: string;
@@ -12,10 +12,8 @@ const defaultTodo = {
 
 export class AppStore {
   @observable
-  public inputValue = {
-    value: '',
-    status: false
-  };
+  public inputValue = defaultTodo;
+
   @observable
   private _todoList: Array<TodoItemType> = [];
 
@@ -24,12 +22,17 @@ export class AppStore {
     return this._todoList;
   }
 
-  addNewTodo() {
+  @action
+   addNewTodoItem(): void {
     this.todoList.push(this.inputValue);
-    console.log(this.todoList);
-
   }
-   clearInput() {
+
+  @action
+  deleteTodoItem(id: number): Array<TodoItemType> {
+    return this._todoList.splice(id, 1);
+  }
+
+  clearInput(): void {
     this.inputValue = defaultTodo;
   }
 }

@@ -1,15 +1,52 @@
+
 .todo-list {
-  //border: 1px solid red;
+
   width: 50%;
   margin: 0 auto;
   &__item{
+    display: flex;
     border: 1px solid red;
-    &__done-btn{
+    &:nth-child(odd){
+      background-color: #f1f1f1;
     }
+    &__delete-todo{
+      display: block;
+
+      width: 10%;
+      cursor: pointer;
+      transition: .3s ease-out;
+      text-decoration: none;
+      color: #fff;
+      background-color: #26a69a;
+      text-align: center;
+      letter-spacing: .5px;
+      font-size: 14px;
+      outline: 0;
+      border: none;
+      border-radius: 10px;
+      height: 36px;
+      line-height: 36px;
+      text-transform: uppercase;
+      &:hover{
+        background-color: #2bbbad;
+        box-shadow:
+                0 3px 3px 0 rgba(0,0,0,0.14),
+                0 1px 7px 0 rgba(0,0,0,0.12),
+                0 3px 1px -1px rgba(0,0,0,0.2);
+      }
     }
+
+  }
 
 
 }
 .completed{
   text-decoration: line-through;
+}
+.todo-list__item__done-checkbox:checked{
+  width: 30px;
+  height: 30px;
+  background-color: #26a69a;
+  color: red;
+
 }

@@ -7,23 +7,23 @@ import './TodoItem.scss';
 
 @observer
 export class TodoItem extends React.Component {
-
   render() {
 
-    let className = classnames('todo-list__item');
     const todoItem = appStore.todoList.map((item, i) => {
+      let className = classnames('todo-list__item');
       if (item.status) {
         className += ' completed';
       }
       return (
         <div key={i} className={className}>
           <input
-            className="todo-list__item__done-btn"
+            className="todo-list__item__done-checkbox"
             type="checkbox"
             checked={item.status}
-            onClick={() => item.status = !item.status}
+            onClick={() => {
+              item.status = !item.status;
+            }}
           />
-
           <div className="todo-list__item__todo-value">
             {item.value}
           </div>
@@ -34,7 +34,7 @@ export class TodoItem extends React.Component {
               appStore.deleteTodoItem(i);
             }}
           >
-            del
+            <img className="weather-icon" src={require('../assets/times.svg')} alt=""/>
           </button>
         </div>
       );

@@ -1,12 +1,12 @@
-.input-form{
+.input-form {
   width: 50%;
   margin: 50px auto;
-  &__input-wrapper{
+  &__input-wrapper {
     border-radius: 10px;
     border: 1px solid #ebebeb;
     padding: 10px;
-    box-shadow: 0px 10px 30px -10px rgba(0,0,0,.3);
-    &:focus{
+    box-shadow: 0px 10px 30px -10px rgba(0, 0, 0, .3);
+    &:focus {
       outline: none;
     }
   }
@@ -17,14 +17,14 @@
     height: 30px;
     vertical-align: middle;
     text-align: center;
-    &:focus{
+    &:focus {
       outline: none;
       &::placeholder {
         color: transparent;
       }
     }
   }
-  &__submit-btn{
+  &__submit-btn {
     display: block;
     margin: 20px auto;
     width: 30%;
@@ -43,13 +43,11 @@
     line-height: 36px;
     padding: 0 16px;
     text-transform: uppercase;
-     &:hover{
+    &:hover {
       background-color: #2bbbad;
-      box-shadow:
-              0 3px 3px 0 rgba(0,0,0,0.14),
-              0 1px 7px 0 rgba(0,0,0,0.12),
-              0 3px 1px -1px rgba(0,0,0,0.2);
+      box-shadow: 0 3px 3px 0 rgba(0, 0, 0, 0.14),
+      0 1px 7px 0 rgba(0, 0, 0, 0.12),
+      0 3px 1px -1px rgba(0, 0, 0, 0.2);
     }
   }
-
 }

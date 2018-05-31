@@ -2,6 +2,7 @@ import * as React from 'react';
 import { observer } from 'mobx-react';
 import * as classnames from 'classnames';
 import { appStore } from '../store/app.store';
+
 import './TodoItem.scss';
 
 @observer
@@ -26,14 +27,13 @@ export class TodoItem extends React.Component {
           <div className={className}>
             {item.value}
           </div>
-          {/*Favorite beverage: <FontAwesomeIcon icon="coffee"/>*/}
           <button
             className="todo-list__item__delete-todo"
             onClick={() => {
               appStore.deleteTodoItem(i);
             }}
-          >X
-            {/*<img className="weather-icon" src={require('../assets/times.svg')} alt=""/>*/}
+          >
+            X
           </button>
         </div>
       );

@@ -1,18 +1,43 @@
 
 .todo-list {
 
-  width: 50%;
+  width: 70%;
   margin: 0 auto;
+  border: 1px solid grey;
+  border-radius: 10px;
+
   &__item{
     display: flex;
-    border: 1px solid red;
+    align-items: center;
+    padding: 10px 10px;
     &:nth-child(odd){
       background-color: #f1f1f1;
     }
-    &__delete-todo{
-      display: block;
+    &:first-child{
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+    }
+    &:last-child{
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+    &__done-checkbox{
+      width: 20px;
+      height: 20px;
+      margin-right: 10px;
+    }
+    &__todo-value{
+      font-size: 1.2rem;
+      flex: 1 0 60%;
 
-      width: 10%;
+    }
+
+    &__delete-todo{
+      flex: 0 0 5%;
+
+
+      display: block;
+      width: 5%;
       cursor: pointer;
       transition: .3s ease-out;
       text-decoration: none;
@@ -20,7 +45,7 @@
       background-color: #26a69a;
       text-align: center;
       letter-spacing: .5px;
-      font-size: 14px;
+      font-size: 1.5rem;
       outline: 0;
       border: none;
       border-radius: 10px;
@@ -42,11 +67,7 @@
 }
 .completed{
   text-decoration: line-through;
-}
-.todo-list__item__done-checkbox:checked{
-  width: 30px;
-  height: 30px;
-  background-color: #26a69a;
-  color: red;
+  color: #757575;
+  font-size: 1rem;
 
 }

@@ -4,6 +4,7 @@ import { InputForm } from './inputForm/InputForm';
 import { TodoList } from './todoList/TodoList';
 
 class App extends React.Component {
+
   render() {
     return (
       <div className="App">

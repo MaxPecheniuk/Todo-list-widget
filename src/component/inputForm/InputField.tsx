@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { appStore } from '../store/app.store';
+import { appStore } from '../../store/app.store';
 import { observer } from 'mobx-react';
 
 @observer

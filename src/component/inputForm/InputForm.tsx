@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { InputField } from './InputField';
-import { appStore } from '../store/app.store';
+import { appStore } from '../../store/app.store';
 
 import './InputForm.scss';
 

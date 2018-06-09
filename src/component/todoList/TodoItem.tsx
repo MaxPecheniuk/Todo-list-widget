@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { observer } from 'mobx-react';
 import * as classnames from 'classnames';
-import { appStore } from '../store/app.store';
+import { appStore } from '../../store/app.store';
 
 import './TodoItem.scss';
 

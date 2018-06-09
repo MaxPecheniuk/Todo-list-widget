@@ -1,8 +1,8 @@
 import * as React from 'react';
-import './App.scss';
-import { InputForm } from './inputForm/InputForm';
-import { TodoList } from './todoList/TodoList';
+import { InputForm } from './component/inputForm/InputForm';
+import { TodoList } from './component/todoList/TodoList';
 
+import './App.scss';
 class App extends React.Component {
 
   render() {

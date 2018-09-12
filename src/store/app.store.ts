@@ -1,40 +1,37 @@
 import { action, computed, observable } from 'mobx';
-
-export interface TodoItemType {
-  value: string;
-  status: boolean;
-}
-
-const defaultTodo = {
-  value: '',
-  status: false
-};
+import { TodoItemTypes } from '../types/TodoItemTypes';
 
 export class AppStore {
-  @observable
-  public inputValue = defaultTodo;
 
   @observable
-  private _todoList: Array<TodoItemType> = [];
+  private _todoList: Array<TodoItemTypes> = [];
 
   @computed
-  get todoList(): Array<TodoItemType> {
+  get todoList(): Array<TodoItemTypes> {
     return this._todoList;
   }
 
   @action
-   addNewTodoItem(): void {
-    this.todoList.push(this.inputValue);
+  addNewTodoItem(value: TodoItemTypes): void {
+    this._todoList.push(value);
+    this.updateLocalStorage();
   }
 
   @action
-  deleteTodoItem(id: number): Array<TodoItemType> {
-    return this._todoList.splice(id, 1);
+  deleteTodoItem(id: number): Array<TodoItemTypes> {
+    this._todoList.splice(id, 1);
+    this.updateLocalStorage();
+    return this._todoList;
+  }
+  @action
+  test() {
+    this._todoList = JSON.parse(localStorage.getItem('__ToDoStorage__') || '{}');
   }
 
-  clearInput(): void {
-    this.inputValue = defaultTodo;
+  private updateLocalStorage(): void {
+    localStorage.setItem('__ToDoStorage__', JSON.stringify(this._todoList));
   }
+
 }
 
 export const appStore = new AppStore();

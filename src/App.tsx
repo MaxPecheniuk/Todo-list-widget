@@ -3,7 +3,11 @@ import { InputForm } from './component/inputForm/InputForm';
 import { TodoList } from './component/todoList/TodoList';
 
 import './App.scss';
+import { appStore } from './store/app.store';
 class App extends React.Component {
+  componentDidMount() {
+    appStore.test();
+  }
 
   render() {
     return (

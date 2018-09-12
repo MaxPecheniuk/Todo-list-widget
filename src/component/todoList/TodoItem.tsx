@@ -7,6 +7,7 @@ import './TodoItem.scss';
 
 @observer
 export class TodoItem extends React.Component {
+
   render() {
 
     const todoItem = appStore.todoList.map((item, i) => {
@@ -26,6 +27,7 @@ export class TodoItem extends React.Component {
           />
           <div className={className}>
             {item.value}
+
           </div>
           <button
             className="todo-list__item__delete-todo"

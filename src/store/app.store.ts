@@ -1,4 +1,4 @@
-import { action, computed, observable } from 'mobx';
+import { computed, observable } from 'mobx';
 import { TodoItemTypes } from '../types/TodoItemTypes';
 
 export class AppStore {
@@ -11,25 +11,23 @@ export class AppStore {
     return this._todoList;
   }
 
-  @action
-  addNewTodoItem(value: TodoItemTypes): void {
-    this._todoList.push(value);
+  set addNewTodoItem(item: TodoItemTypes) {
+    this._todoList.push(item);
     this.updateLocalStorage();
   }
 
-  @action
-  deleteTodoItem(id: number): Array<TodoItemTypes> {
+  set deleteTodoItem(id: number) {
     this._todoList.splice(id, 1);
     this.updateLocalStorage();
-    return this._todoList;
+
   }
-  @action
-  test() {
-    this._todoList = JSON.parse(localStorage.getItem('__ToDoStorage__') || '{}');
+
+  public parseTodo() {
+    this._todoList = JSON.parse(localStorage.getItem('__toDoStorage__') || '[]');
   }
 
   private updateLocalStorage(): void {
-    localStorage.setItem('__ToDoStorage__', JSON.stringify(this._todoList));
+    localStorage.setItem('__toDoStorage__', JSON.stringify(this._todoList));
   }
 
 }

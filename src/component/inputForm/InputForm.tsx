@@ -1,11 +1,11 @@
 import * as React from 'react';
+import { observer } from 'mobx-react';
+import { action, observable } from 'mobx';
+import { appStore } from '../../store/app.store';
 import { InputField } from '../inputField/InputField';
+import { TodoItemTypes } from '../../types/TodoItemTypes';
 
 import './InputForm.scss';
-import { observer } from 'mobx-react';
-import { action, observable, reaction } from 'mobx';
-import { TodoItemTypes } from '../../types/TodoItemTypes';
-import { appStore } from '../../store/app.store';
 
 const defaultTodo = {
   value: '',
@@ -14,6 +14,7 @@ const defaultTodo = {
 
 @observer
 export class InputForm extends React.Component {
+
   @observable
   private _inputValue: TodoItemTypes = defaultTodo;
 
@@ -21,12 +22,9 @@ export class InputForm extends React.Component {
     event.preventDefault();
 
     if (this._inputValue.value.length > 0 && this._inputValue.value !== ' ') {
-      appStore.addNewTodoItem(this._inputValue);
+      appStore.addNewTodoItem = this._inputValue;
       this.clearInput();
     }
-    console.log('aa');
-    reaction(() => appStore.todoList, (item: any) => console.log(item));
-
   }
 
   render() {
@@ -46,9 +44,9 @@ export class InputForm extends React.Component {
           Submit
         </button>
       </form>
-
     );
   }
+
   private clearInput(): void {
     this._inputValue = defaultTodo;
   }

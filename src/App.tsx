@@ -6,7 +6,7 @@ import './App.scss';
 import { appStore } from './store/app.store';
 class App extends React.Component {
   componentDidMount() {
-    appStore.test();
+    appStore.parseTodo();
   }
 
   render() {

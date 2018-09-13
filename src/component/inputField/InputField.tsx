@@ -24,8 +24,6 @@ export class InputField extends React.Component<IInputFieldProps> {
           onChange={this.handleInputChange}
         />
       </div>
-
     );
   }
-
 }

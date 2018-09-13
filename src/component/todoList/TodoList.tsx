@@ -1,21 +1,27 @@
 import * as React from 'react';
+import { observer } from 'mobx-react';
 import { appStore } from '../../store/app.store';
-import { reaction } from 'mobx';
 import { TodoItem } from './TodoItem';
 
+@observer
 export class TodoList extends React.Component {
-  componentWillUpdate() {
-    console.log('2');
-    if (appStore.todoList !== undefined) {
-      reaction(() => appStore.todoList, (item) => console.log(item));
 
-    }
-
-  }
   render() {
+    let todoItem = null;
+    if (appStore.todoList !== undefined) {
+      todoItem = appStore.todoList.map((items, i) => {
+        return (
+          <TodoItem
+            data={items}
+            key={i}
+            keys={i}
+          />
+        );
+      });
+    }
     return (
       <div className="todo-list">
-        <TodoItem/>
+        {todoItem}
       </div>
     );
   }

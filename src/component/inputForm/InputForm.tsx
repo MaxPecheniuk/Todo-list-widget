@@ -20,7 +20,6 @@ export class InputForm extends React.Component {
 
   submitHandler = (event: React.FormEvent<any>) => {
     event.preventDefault();
-
     if (this._inputValue.value.length > 0 && this._inputValue.value !== ' ') {
       appStore.addNewTodoItem = this._inputValue;
       this.clearInput();
@@ -30,7 +29,7 @@ export class InputForm extends React.Component {
   render() {
     return (
       <form
-        className="input-form"
+        className="input-formm"
         onSubmit={this.submitHandler}
       >
         <InputField
@@ -38,11 +37,14 @@ export class InputForm extends React.Component {
           onChange={action((value: string) => this._inputValue.value = value)}
         />
         <button
-          className="input-form__submit-btn"
+          className="btn waves-effect waves-light input-formm__submit-btn"
+          type="submit"
+          name="action"
           onClick={this.submitHandler}
         >
           Submit
         </button>
+
       </form>
     );
   }

@@ -1,13 +1,11 @@
 import * as React from 'react';
 import { SyntheticEvent } from 'react';
-import { observer } from 'mobx-react';
 
 interface IInputFieldProps {
   value: string;
   onChange: (value: string) => void;
 }
 
-@observer
 export class InputField extends React.Component<IInputFieldProps> {
 
   handleInputChange = (event: SyntheticEvent<HTMLInputElement>) => {
@@ -16,14 +14,16 @@ export class InputField extends React.Component<IInputFieldProps> {
 
   render() {
     return (
-      <div className="input-form__input-wrapper">
+      <div className="input-formm__input-wrapper">
         <input
           placeholder="Add Todo"
-          className="input-form__input-field"
+          className="input-formm__input-fieldd"
           value={this.props.value}
           onChange={this.handleInputChange}
         />
       </div>
+
     );
   }
+
 }

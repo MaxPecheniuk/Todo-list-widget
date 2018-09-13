@@ -20,9 +20,9 @@ export class TodoList extends React.Component {
       });
     }
     return (
-      <div className="todo-list">
+      <ul className="collection todo-list z-depth-4">
         {todoItem}
-      </div>
+      </ul>
     );
   }
 }

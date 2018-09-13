@@ -26,7 +26,7 @@ export class AppStore {
     this._todoList = JSON.parse(localStorage.getItem('__toDoStorage__') || '[]');
   }
 
-  private updateLocalStorage(): void {
+  public updateLocalStorage(): void {
     localStorage.setItem('__toDoStorage__', JSON.stringify(this._todoList));
   }
 

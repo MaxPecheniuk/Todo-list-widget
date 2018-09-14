@@ -7,6 +7,12 @@ import { TodoItem } from './TodoItem';
 export class TodoList extends React.Component {
 
   render() {
+    let style = {};
+    if (appStore.todoList.length === 0) {
+      style = {
+        display: 'none'
+      };
+    }
     let todoItem = null;
     if (appStore.todoList !== undefined) {
       todoItem = appStore.todoList.map((items, i) => {
@@ -20,7 +26,7 @@ export class TodoList extends React.Component {
       });
     }
     return (
-      <ul className="collection todo-list z-depth-4">
+      <ul style={style} className="collection todo-list z-depth-4">
         {todoItem}
       </ul>
     );

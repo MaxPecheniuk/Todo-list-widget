@@ -14,10 +14,10 @@ export class InputField extends React.Component<IInputFieldProps> {
 
   render() {
     return (
-      <div className="input-formm__input-wrapper">
+      <div className="input-form__input-wrapper">
         <input
           placeholder="Add Todo"
-          className="input-formm__input-fieldd"
+          className="input-form__input-field"
           value={this.props.value}
           onChange={this.handleInputChange}
         />

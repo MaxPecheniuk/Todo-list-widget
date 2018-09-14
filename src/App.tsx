@@ -15,18 +15,6 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        {/*<form action="#">*/}
-
-          {/*<input*/}
-            {/*type="checkbox"*/}
-            {/*className="filled-in"*/}
-            {/*id="filled-in-box"*/}
-            {/*// checked="checked"*/}
-          {/*/>*/}
-          {/*<span>sadasd</span>*/}
-          {/*<label htmlFor="filled-in-box">Filled in</label>*/}
-
-        {/*</form>*/}
         <InputForm/>
         <TodoList/>
       </div>

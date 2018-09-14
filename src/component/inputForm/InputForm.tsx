@@ -28,24 +28,26 @@ export class InputForm extends React.Component {
 
   render() {
     return (
-      <form
-        className="input-formm"
-        onSubmit={this.submitHandler}
-      >
-        <InputField
-          value={this._inputValue.value}
-          onChange={action((value: string) => this._inputValue.value = value)}
-        />
-        <button
-          className="btn waves-effect waves-light input-formm__submit-btn"
-          type="submit"
-          name="action"
-          onClick={this.submitHandler}
-        >
-          Submit
-        </button>
 
-      </form>
+        <form
+          className="input-form"
+          onSubmit={this.submitHandler}
+        >
+          <InputField
+            value={this._inputValue.value}
+            onChange={action((value: string) => this._inputValue.value = value)}
+          />
+          <button
+            className="btn waves-effect waves-light input-form__submit-btn"
+            type="submit"
+            name="action"
+            onClick={this.submitHandler}
+          >
+            Submit
+          </button>
+
+        </form>
+
     );
   }
 

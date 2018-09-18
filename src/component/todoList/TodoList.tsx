@@ -8,12 +8,12 @@ export class TodoList extends React.Component {
 
   render() {
     let style = {};
+    let todoItem = null;
     if (appStore.todoList.length === 0) {
       style = {
         display: 'none'
       };
     }
-    let todoItem = null;
     if (appStore.todoList !== undefined) {
       todoItem = appStore.todoList.map((items, i) => {
         return (

@@ -11,7 +11,7 @@ export class AppStore {
     return this._todoList;
   }
 
-  set addNewTodoItem(item: TodoItemTypes) {
+  set addNewTodoItem (item: TodoItemTypes)  {
     this._todoList.push(item);
     this.updateLocalStorage();
   }
@@ -22,11 +22,11 @@ export class AppStore {
 
   }
 
-  public parseTodo() {
+  public parseTodo = () => {
     this._todoList = JSON.parse(localStorage.getItem('__toDoStorage__') || '[]');
   }
 
-  public updateLocalStorage(): void {
+  public updateLocalStorage = (): void => {
     localStorage.setItem('__toDoStorage__', JSON.stringify(this._todoList));
   }
 

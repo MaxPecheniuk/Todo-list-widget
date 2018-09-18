@@ -1,10 +1,10 @@
 import * as React from 'react';
+import { SyntheticEvent } from 'react';
 import * as classnames from 'classnames';
 import { appStore } from '../../store/app.store';
-import './TodoItem.scss';
 import { observer } from 'mobx-react';
 import { observable } from 'mobx';
-import { SyntheticEvent } from 'react';
+import './TodoItem.scss';
 
 interface ITodoItemProps {
   data: any;
@@ -13,6 +13,7 @@ interface ITodoItemProps {
 
 @observer
 export class TodoItem extends React.Component<ITodoItemProps> {
+
   @observable
   private _edit = false;
 

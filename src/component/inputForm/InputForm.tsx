@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { SyntheticEvent } from 'react';
 import { observer } from 'mobx-react';
 import { action, observable } from 'mobx';
 import { appStore } from '../../store/app.store';
@@ -18,8 +19,12 @@ export class InputForm extends React.Component {
   @observable
   private _inputValue: TodoItemTypes = defaultTodo;
 
-  submitHandler = (event: React.FormEvent<any>) => {
+  submitHandler = (event: SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
+
+  }
+
+  addTodo = () => {
     if (this._inputValue.value.length > 0 && this._inputValue.value !== ' ') {
       appStore.addNewTodoItem = this._inputValue;
       this.clearInput();
@@ -28,11 +33,7 @@ export class InputForm extends React.Component {
 
   render() {
     return (
-
-        <form
-          className="input-form"
-          onSubmit={this.submitHandler}
-        >
+        <form className="input-form" onSubmit={this.submitHandler}>
           <InputField
             value={this._inputValue.value}
             onChange={action((value: string) => this._inputValue.value = value)}
@@ -41,11 +42,10 @@ export class InputForm extends React.Component {
             className="btn waves-effect waves-light input-form__submit-btn"
             type="submit"
             name="action"
-            onClick={this.submitHandler}
+            onClick={this.addTodo}
           >
             Submit
           </button>
-
         </form>
 
     );
